@@ -23,11 +23,18 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('app');
   });
 
-  it('should render app title', () => {
+  it('should render app title via pipe', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello world!');
+    expect(compiled.querySelector('h1#pipe')?.textContent).toContain('Hello world!');
+  });
+
+  it('should render app title via service', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('h1#service')?.textContent).toContain('Hello world!');
   });
 
   it('should render b title', () => {
